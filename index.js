@@ -30,7 +30,8 @@ module.exports = function (options) {
         const cssoOptions = Object.assign({
             sourceMap: Boolean(file.sourceMap),
             restructure: true,
-            debug: false
+            debug: false,
+			forceMediaMerge:true
         }, options, { filename: inputFile }); // filename can't be overridden
 
         try {
