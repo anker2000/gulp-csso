@@ -30,7 +30,7 @@ function fixture (contents) {
 
 function sourceMapFixture (contents, sourceMap) {
     const file = new Vinyl({
-        contents: new Buffer(contents),
+        contents: Buffer.from(contents),
         cwd: __dirname,
         base: __dirname,
         path: __dirname + '/test.css',
@@ -48,7 +48,7 @@ test('should minify css with csso, performing structural optimisation', function
         t.equal(String(file.contents), optimalmin);
     });
 
-    stream.write(fixture(new Buffer(basestyle)));
+    stream.write(fixture(Buffer.from(basestyle)));
 });
 
 test('should minify css with csso, performing structural optimisation when options is `false` (backward compatibility)', function (t) {
@@ -60,7 +60,7 @@ test('should minify css with csso, performing structural optimisation when optio
         t.equal(String(file.contents), optimalmin);
     });
 
-    stream.write(fixture(new Buffer(basestyle)));
+    stream.write(fixture(Buffer.from(basestyle)));
 });
 
 test('should minify css with csso, with no structural optimisation', function (t) {
@@ -72,7 +72,7 @@ test('should minify css with csso, with no structural optimisation', function (t
         t.equal(String(file.contents), nonoptimal);
     });
 
-    stream.write(fixture(new Buffer(basestyle)));
+    stream.write(fixture(Buffer.from(basestyle)));
 });
 
 test('should minify css with csso, with no structural optimisation when options is `true` (backward compatibility)', function (t) {
@@ -84,7 +84,7 @@ test('should minify css with csso, with no structural optimisation when options 
         t.equal(String(file.contents), nonoptimal);
     });
 
-    stream.write(fixture(new Buffer(basestyle)));
+    stream.write(fixture(Buffer.from(basestyle)));
 });
 
 test('should let null files pass through', function (t) {

@@ -42,7 +42,7 @@ module.exports = function (options) {
                 file.sourceMap = null;
             }
 
-            file.contents = new Buffer(result.css);
+            file.contents = Buffer.from(result.css);
             cb(null, file);
         } catch(error) {
             this.emit('error', new PluginError(PLUGIN_NAME, error));
